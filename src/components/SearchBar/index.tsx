@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { User } from "../../types/UserTypes";
 import { SearchComponentProps } from "../../types/SearchBarTypes";
 import { fetchGithubUsers } from "../../services/githubUsers";
 import { TextField, Button, Typography } from "@mui/material";
 
-function SearchBar({ results, setResults }: SearchComponentProps) {
+function SearchBar({ setResults }: SearchComponentProps) {
   const [query, setQuery] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
@@ -33,9 +32,6 @@ function SearchBar({ results, setResults }: SearchComponentProps) {
         Buscar
       </Button>
       {error && <Typography color="error">{error}</Typography>}
-      {results.map((user: User) => {
-        return <p key={user.login}>{user.login}</p>;
-      })}
     </div>
   );
 }

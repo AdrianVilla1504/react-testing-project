@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
+import ListUsers from "./components/ListUsers";
 import { User } from "./types/UserTypes";
+
 import "./App.css";
 
 function App() {
@@ -8,7 +10,8 @@ function App() {
 
   return (
     <>
-      <SearchBar results={results} setResults={setResults} />
+      <SearchBar setResults={setResults} />
+      <ListUsers users={results}/>
     </>
   );
 }
